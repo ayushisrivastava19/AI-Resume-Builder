@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import React from 'react'
 
 const Navbar = () => {
-    const user = {name: 'John Doe'} // Replace with actual user data
+    const user = {name: 'Joe Doe'} // Replace with actual user data
     const navigate= useNavigate  
 
     const logoutUser = () => {
