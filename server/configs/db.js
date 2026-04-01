@@ -12,7 +12,8 @@ const connectDB = async () => {
          if(mongodbURI.endsWith('/')){
             mongodbURI = mongodbURI.slice(0, -1)
          }
-
+         
+         mongoose.set('strictQuery', true)
          await mongoose.connect(`${mongodbURI}/${projectName}`)
     } catch (error) {
         console.error("Error connecting to MongoDB:", error)

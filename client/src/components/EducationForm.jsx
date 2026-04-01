@@ -23,7 +23,7 @@ const EducationForm = ({ data, onChange }) => {
         onChange(updated)
     }
   return (
-    <div>
+
     <div className='space-y-6'>
              <div className ='flex items-center justify-between'>
          <div>
@@ -69,7 +69,6 @@ const EducationForm = ({ data, onChange }) => {
                 ))}
             </div>
         )}
-    </div>
     </div>
   )
 }
