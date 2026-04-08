@@ -37,7 +37,12 @@ const ResumeBuilder = () => {
     const {data}= await api.get('/api/resumes/get/' + resumeId, {headers: {
       Authorization: token }})
       if(data.resume){
-        setResumeData(data.resume)
+        setResumeData(prev => ({
+                    ...prev,
+                    ...data.resume,
+              skills: data.resume.skills || [],
+              projects: data.resume.projects || [],
+}))
         document.title = data.resume.title;
       }
    } catch (error) {
@@ -170,7 +175,7 @@ const ResumeBuilder = () => {
                   <ProjectForm data={resumeData.projects} onChange={(data)=> setResumeData(prev=> ({...prev, projects: data}))} />
                 )}
                  {activeSection.id === 'skills' && (
-                  <SkillsForm data={resumeData.skills} onChange={(data)=> setResumeData(prev=> ({...prev, skills: data}))} />
+                  <SkillsForm data={resumeData.skills || []} onChange={(data)=> setResumeData(prev=> ({...prev, skills: data}))} />
                 )}
               </div>
               
