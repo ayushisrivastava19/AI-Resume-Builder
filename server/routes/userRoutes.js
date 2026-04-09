@@ -1,14 +1,17 @@
-import express from 'express';
+import express from "express";
 import { getUserById, getUserResumes, loginUser, registerUser } from '../controllers/userController.js';
 import protect from '../middlewares/authMiddleware.js';
 
+const userRouter = express.Router();   // ✅ FIRST
 
-
-const userRouter =express.Router();
+// test route
+userRouter.get('/', (req, res) => {
+    res.send("User API working ✅")
+});
 
 userRouter.post('/register', registerUser);
 userRouter.post('/login', loginUser);
-userRouter.get('/data',protect, getUserById);
-userRouter.get('/resumes',protect, getUserResumes)
+userRouter.get('/data', protect, getUserById);
+userRouter.get('/resumes', protect, getUserResumes);
 
 export default userRouter;
