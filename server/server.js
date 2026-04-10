@@ -21,6 +21,6 @@ app.use('/api/users', userRouter)
 app.use('/api/resumes', resumeRouter)
 app.use('/api/ai', aiRouter)
 
-app.listen(PORT, ()=>{
-    console.log(`Server is running on port ${PORT}`);
-})
+app.listen(process.env.PORT || 10000, '0.0.0.0', () => {
+  console.log(`Server is running on port ${process.env.PORT || 10000}`);
+});
