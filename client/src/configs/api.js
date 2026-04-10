@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL + "/api"
+  baseURL: "https://ai-resume-builder-1ggz.onrender.com/api"
 })
 
 export default api;
